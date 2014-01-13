@@ -25,6 +25,7 @@ body {
     text-align: center;
     margin-top: 50px;
     font-family: Verdana, sans-serif;
+    cursor: pointer;
 }
 
 .bluebuff {
