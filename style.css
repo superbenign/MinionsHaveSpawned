@@ -3,6 +3,12 @@ body {
     background-color: #ffffff;
 }
 
+.header {
+    text-align: center;
+    padding-bottom: 50px;
+    font-family: helvetica, sans-serif;
+}
+
 .bodydiv {
 
 }
@@ -11,20 +17,20 @@ body {
     float: left;
     width: 25%;
     margin:4%;
-
 }
 
 .areatitle {
-    font-family: Verdana, sans-serif;
+    font-family: verdana, sans-serif;
     font-size: x-large;
     text-align: center;
 }
 
 .buff {
     border: 1px solid #000000;
+    border-radius: 5px;
     text-align: center;
     margin-top: 50px;
-    font-family: Verdana, sans-serif;
+    font-family: verdana, sans-serif;
     cursor: pointer;
 }
 
