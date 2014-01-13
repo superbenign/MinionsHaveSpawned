@@ -1,4 +1,8 @@
 
+body {
+    background-color: #ffffff;
+}
+
 .bodydiv {
 
 }
@@ -19,14 +23,31 @@
 .buff {
     border: 1px solid #000000;
     text-align: center;
-    margin-top: 20px;
-
+    margin-top: 50px;
+    font-family: Verdana, sans-serif;
 }
 
 .bluebuff {
-    background-color: #3b7ce8;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    background-color: #2973bd;
 }
 
-.redbuff{
-    background-color: #ff241f;
+.redbuff {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    background-color: #9b2f04;
+}
+
+.baron {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    background-color: #9c145c;
+
+}
+
+.dragon {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    background-color: #416732;
 }
