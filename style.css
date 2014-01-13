@@ -1,0 +1,32 @@
+
+.bodydiv {
+
+}
+
+.area {
+    float: left;
+    width: 25%;
+    margin:4%;
+
+}
+
+.areatitle {
+    font-family: Verdana, sans-serif;
+    font-size: x-large;
+    text-align: center;
+}
+
+.buff {
+    border: 1px solid #000000;
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.bluebuff {
+    background-color: #3b7ce8;
+}
+
+.redbuff{
+    background-color: #ff241f;
+}
