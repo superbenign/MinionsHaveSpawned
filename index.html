@@ -7,10 +7,10 @@
         <div class=area id=ourbuffs>
             <div class=areatitle id=ourbufftitle>Our Jungle</div>
             <div class=buff>
-                <div class=bluebuff id=ourbluebuff onclick="changeText('ourbluebuff', '2000', 'Spawning Soon!')">Blue</div>
+                <div class=bluebuff id=ourbluebuff onclick="activateCooldown('ourbluebuff', 'Blue', 3000)">Blue</div>
             </div>
             <div class=buff>
-                <div class=redbuff id=ourredbuff onclick="changeText('ourredbuff', '2000', 'Spawning Soon!')">Red</div>
+                <div class=redbuff id=ourredbuff onclick="activateCooldown('ourredbuff', 'Red', 300000)", 'Spawning Soon!')">Red</div>
             </div>
         </div>
         <div class=area id=river>
@@ -22,10 +22,10 @@
         <div class=area id=theirbuffs>
             <div class=areatitle id=theirbufftitle>Their Jungle</div>
             <div class=buff>
-                <div class=bluebuff id=theirbluebuff onclick="changeText('theirbluebuff', '2000', 'Spawning Soon!')">Blue</div>
+                <div class=bluebuff id=theirbluebuff onclick="activateCooldown('theirbluebuff', 'Blue', 300000)">Blue</div>
             </div>
             <div class=buff>
-                <div class=redbuff id=theirredbuff onclick="changeText('theirredbuff', '2000', 'Spawning Soon!')">Red</div>
+                <div class=redbuff id=theirredbuff onclick="activateCooldown('theirredbuff', 'Red', 300000)">Red</div>
             </div>
         </div>
     </div>
