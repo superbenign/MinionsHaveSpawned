@@ -1,6 +1,6 @@
 
 body {
-    background-color: #ffffff;
+    background-color: rgb(34, 34, 34);
 }
 
 .header {
@@ -23,15 +23,20 @@ body {
     font-family: verdana, sans-serif;
     font-size: x-large;
     text-align: center;
+    
 }
 
 .buff {
-    border: 1px solid #000000;
-    border-radius: 5px;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #ffdb4c;
     text-align: center;
     margin-top: 50px;
     font-family: verdana, sans-serif;
     cursor: pointer;
+    overflow:hidden;
+    color:white;
+    font-weight: bold;
 }
 
 .bluebuff {
@@ -43,14 +48,13 @@ body {
 .redbuff {
     padding-top: 35px;
     padding-bottom: 35px;
-    background-color: #9b2f04;
+    background-color: #9b2f34;
 }
 
 .baron {
     padding-top: 35px;
     padding-bottom: 35px;
     background-color: #9c145c;
-
 }
 
 .dragon {
