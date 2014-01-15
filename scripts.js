@@ -1,17 +1,76 @@
 // Javascript portion of MinionsHaveSpawned Jungle Timer Web App
 
-var ourBlueEndTime = 0;
-var ourRedEndTime = 0;
-var baronEndTime = 0;
-var dragonEndTime = 0;
-var theirBlueEndTime = 0;
-var theirRedEndTime = 0;
-
-function changeText(elemID, waitTime, newText) {
-    setTimeout(function() {changeTextNow(elemID, newText);}, waitTime);
+var max_channels = 10;
+var audiochannels = new Array();
+var buffs = {};
+var a;
+for (a = 0; a < max_channels; a++) {
+    audiochannels[a] = new Array();
+    audiochannels[a]['channel'] = new Audio();
+    audiochannels[a]['finished'] = 0;
 }
 
-function changeTextNow(elemID, newText) {
+buffs['ourbluebuff'] = {};
+buffs['ourredbuff'] = {};
+buffs['baron'] = {};
+buffs['dragon'] = {};
+buffs['theirbluebuff'] = {};
+buffs['theirredbuff'] = {};
+
+buffs['ourbluebuff']['endTime'] = 0;
+buffs['ourredbuff']['endTime'] = 0;
+buffs['baron']['endTime'] = 0;
+buffs['dragon']['endTime'] = 0;
+buffs['theirbluebuff']['endTime'] = 0;
+buffs['theirredbuff']['endTime'] = 0;
+
+buffs['ourbluebuff']['soonAudio'] = "yourBlueSoonAudio";
+buffs['ourredbuff']['soonAudio'] = "yourRedSoonAudio";
+buffs['baron']['soonAudio'] = "baronSoonAudio";
+buffs['dragon']['soonAudio'] = "dragonSoonAudio";
+buffs['theirbluebuff']['soonAudio'] = "enemyBlueSoonAudio";
+buffs['theirredbuff']['soonAudio'] = "enemyRedSoonAudio";
+
+buffs['ourbluebuff']['respawnAudio'] = "yourBlueRespawnAudio";
+buffs['ourredbuff']['respawnAudio'] = "yourRedRespawnAudio";
+buffs['baron']['respawnAudio'] = "baronRespawnAudio";
+buffs['dragon']['respawnAudio'] = "dragonRespawnAudio";
+buffs['theirbluebuff']['respawnAudio'] = "enemyBlueRespawnAudio";
+buffs['theirredbuff']['respawnAudio'] = "enemyRedRespawnAudio";
+
+buffs['ourbluebuff']['text'] = "Blue";
+buffs['ourredbuff']['text'] = "Red";
+buffs['baron']['text'] = "Baron";
+buffs['dragon']['text'] = "Dragon";
+buffs['theirbluebuff']['text'] = "Blue";
+buffs['theirredbuff']['text'] = "Red";
+
+buffs['ourbluebuff']['warned'] = 0;
+buffs['ourredbuff']['warned'] = 0;
+buffs['baron']['warned'] = 0;
+buffs['dragon']['warned'] = 0;
+buffs['theirbluebuff']['warned'] = 0;
+buffs['theirredbuff']['warned'] = 0;
+
+function playSound(elemID) {
+    var d = new Date();
+    var curTime = d.getTime();
+    var i;
+
+    for (i = 0; i < audiochannels.length; i++) {
+	if (audiochannels[i]['finished'] < curTime) {
+	    audiochannels[i]['finished'] = curTime + 
+		document.getElementById(elemID).duration * 1000;
+	    audiochannels[i]['channel'].src = 
+		document.getElementById(elemID).src;
+	    audiochannels[i]['channel'].load();
+	    audiochannels[i]['channel'].play();
+	    break;
+	}
+    }
+}
+
+function changeText(elemID, newText) {
     var buff = document.getElementById(elemID);
     while(buff.childNodes.length >= 1) {
 	buff.removeChild(buff.firstChild);
@@ -23,54 +82,12 @@ function activateCooldown(elemID, waitTime) {
     var d = new Date();
     var endTime = d.getTime() + waitTime;
 
-    if (elemID.localeCompare('ourbluebuff') == 0) {
-	if (ourBlueEndTime != 0) {
-	    ourBlueEndTime = 0;
-	} else {
-	    ourBlueEndTime = d.getTime() + waitTime;
-	    runTimer(elemID);
-	}
-    } 
-    if (elemID.localeCompare('ourredbuff') == 0) {
-	if (ourRedEndTime != 0) {
-	    ourRedEndTime = 0;
-	} else {
-	    ourRedEndTime = d.getTime() + waitTime;
-	    runTimer(elemID);
-	}
-    } 
-    if (elemID.localeCompare('baron') == 0) {
-	if (baronEndTime != 0) {
-	    baronEndTime = 0;
-	} else {
-	    baronEndTime = d.getTime() + waitTime;
-	    runTimer(elemID);
-	}
-    } 
-    if (elemID.localeCompare('dragon') == 0) {
-	if (dragonEndTime != 0) {
-	    dragonEndTime = 0;
-	} else {
-	    dragonEndTime = d.getTime() + waitTime;
-	    runTimer(elemID);
-	}
-    } 
-    if (elemID.localeCompare('theirbluebuff') == 0) {
-	if (theirBlueEndTime != 0) {
-	    theirBlueEndTime = 0;
-	} else {
-	    theirBlueEndTime = d.getTime() + waitTime;
-	    runTimer(elemID);
-	}
-    } 
-    if (elemID.localeCompare('theirredbuff') == 0) {
-	if (theirRedEndTime != 0) {
-	    theirRedEndTime = 0;
-	} else {
-	    theirRedEndTime = d.getTime() + waitTime;
-	    runTimer(elemID);
-	}
-    } 
+    if (buffs[elemID]['endTime'] != 0) {
+	buffs[elemID]['endTime'] = 0;
+    } else {
+	buffs[elemID]['endTime'] = d.getTime() + waitTime;
+	runTimer(elemID);
+    }
 }
 
 function runTimer(elemID) {
@@ -80,36 +97,23 @@ function runTimer(elemID) {
     var endTime;
     var text;
 
-    if (elemID.localeCompare('ourbluebuff') == 0) {
-	endTime = ourBlueEndTime;
-	text = 'Blue';
-    }
-    if (elemID.localeCompare('ourredbuff') == 0) {
-	endTime = ourRedEndTime;
-	text = 'Red';
-    }
-    if (elemID.localeCompare('baron') == 0) {
-	endTime = baronEndTime;
-	text = 'Baron';
-    }
-    if (elemID.localeCompare('dragon') == 0) {
-	endTime = dragonEndTime;
-	text = 'Dragon';
-    }
-    if (elemID.localeCompare('theirbluebuff') == 0) {
-	endTime = theirBlueEndTime;
-	text = 'Blue';
-    }
-    if (elemID.localeCompare('theirredbuff') == 0) {
-	endTime = theirRedEndTime;
-	text = 'Red';
-    }
-    if (t < endTime) {
-	timeLeft = (endTime - t) / 1000;
-	changeTextNow(elemID, timeLeft.toFixed(0));
+    if (t < buffs[elemID]['endTime']) {
+	timeLeft = (buffs[elemID]['endTime'] - t) / 1000;
+	changeText(elemID, timeLeft.toFixed(0));
+	if (timeLeft < 30 && buffs[elemID]['warned'] != 1) {
+	    buffs[elemID]['warned'] = 1;
+	    playSound(buffs[elemID]['soonAudio']);
+	}
+	
 
-	setTimeout(function() {runTimer(elemID, text, endTime);}, 300);
+
+	setTimeout(function() {runTimer(elemID);}, 300);
     } else {
-	changeTextNow(elemID, text);
+	if (buffs[elemID]['endTime'] != 0) {
+	    buffs[elemID]['endTime'] = 0;
+	    playSound(buffs[elemID]['respawnAudio']);
+	}
+	buffs[elemID]['warned'] = 0;
+	changeText(elemID, buffs[elemID]['text']);
     }
 }
