@@ -3,19 +3,33 @@
 
 <body>
 
-<audio id="yourBlueRespawnAudio" src="audio/yourBlueFreestyleRespawn.wav" preload="auto"></audio>
-<audio id="yourRedRespawnAudio" src="audio/yourRedFreestyleRespawn.wav" preload="auto"></audio>
-<audio id="baronRespawnAudio" src="audio/baronFreestyleRespawn.wav" preload="auto"></audio>
-<audio id="dragonRespawnAudio" src="audio/dragonFreestyleRespawn.wav" preload="auto"></audio>
-<audio id="enemyBlueRespawnAudio" src="audio/enemyBlueFreestyleRespawn.wav" preload="auto"></audio>
-<audio id="enemyRedRespawnAudio" src="audio/enemyRedFreestyleRespawn.wav" preload="auto"></audio>
+<audio id="normalYourBlueRespawnAudio" src="audio/normalYourBlueRespawn.wav" preload="auto"></audio>
+<audio id="normalYourRedRespawnAudio" src="audio/normalYourRedRespawn.wav" preload="auto"></audio>
+<audio id="normalBaronRespawnAudio" src="audio/normalBaronRespawn.wav" preload="auto"></audio>
+<audio id="normalDragonRespawnAudio" src="audio/normalDragonRespawn.wav" preload="auto"></audio>
+<audio id="normalEnemyBlueRespawnAudio" src="audio/normalEnemyBlueRespawn.wav" preload="auto"></audio>
+<audio id="normalEnemyRedRespawnAudio" src="audio/normalEnemyRedRespawn.wav" preload="auto"></audio>
 
-<audio id="yourBlueSoonAudio" src="audio/yourBlueFreestyleSoon.wav" preload="auto"></audio>
-<audio id="yourRedSoonAudio" src="audio/yourRedFreestyleSoon.wav" preload="auto"></audio>
-<audio id="baronSoonAudio" src="audio/baronFreestyleSoon.wav" preload="auto"></audio>
-<audio id="dragonSoonAudio" src="audio/dragonFreestyleSoon.wav" preload="auto"></audio>
-<audio id="enemyBlueSoonAudio" src="audio/enemyBlueFreestyleSoon.wav" preload="auto"></audio>
-<audio id="enemyRedSoonAudio" src="audio/enemyRedFreestyleSoon.wav" preload="auto"></audio>
+<audio id="normalYourBlueSoonAudio" src="audio/normalYourBlueSoon.wav" preload="auto"></audio>
+<audio id="normalYourRedSoonAudio" src="audio/normalYourRedSoon.wav" preload="auto"></audio>
+<audio id="normalBaronSoonAudio" src="audio/normalBaronSoon.wav" preload="auto"></audio>
+<audio id="normalDragonSoonAudio" src="audio/normalDragonSoon.wav" preload="auto"></audio>
+<audio id="normalEnemyBlueSoonAudio" src="audio/normalEnemyBlueSoon.wav" preload="auto"></audio>
+<audio id="normalEnemyRedSoonAudio" src="audio/normalEnemyRedSoon.wav" preload="auto"></audio>
+
+<audio id="funnyYourBlueRespawnAudio" src="audio/yourBlueFreestyleRespawn.wav" preload="auto"></audio>
+<audio id="funnyYourRedRespawnAudio" src="audio/yourRedFreestyleRespawn.wav" preload="auto"></audio>
+<audio id="funnyBaronRespawnAudio" src="audio/baronFreestyleRespawn.wav" preload="auto"></audio>
+<audio id="funnyDragonRespawnAudio" src="audio/dragonFreestyleRespawn.wav" preload="auto"></audio>
+<audio id="funnyEnemyBlueRespawnAudio" src="audio/enemyBlueFreestyleRespawn.wav" preload="auto"></audio>
+<audio id="funnyEnemyRedRespawnAudio" src="audio/enemyRedFreestyleRespawn.wav" preload="auto"></audio>
+
+<audio id="funnyYourBlueSoonAudio" src="audio/yourBlueFreestyleSoon.wav" preload="auto"></audio>
+<audio id="funnyYourRedSoonAudio" src="audio/yourRedFreestyleSoon.wav" preload="auto"></audio>
+<audio id="funnyBaronSoonAudio" src="audio/baronFreestyleSoon.wav" preload="auto"></audio>
+<audio id="funnyDragonSoonAudio" src="audio/dragonFreestyleSoon.wav" preload="auto"></audio>
+<audio id="funnyEnemyBlueSoonAudio" src="audio/enemyBlueFreestyleSoon.wav" preload="auto"></audio>
+<audio id="funnyEnemyRedSoonAudio" src="audio/enemyRedFreestyleSoon.wav" preload="auto"></audio>
 
     <link rel="stylesheet" type="text/css" href="style.css" />
     <div class=header>
@@ -51,6 +65,13 @@
                 <div class=redbuff id=theirredbuff onclick="activateCooldown('theirredbuff', 300000)">Red</div>
             </div>
         </div>
+
+	<div class=areavoice id=voiceselection>
+	  <div class=voicebutton id=funny onclick="changeVoice('funny')">Funny
+	  </div>
+	  <div class=voicebutton id=normal onclick="changeVoice('normal')">Normal
+	  </div>
+	</div>
     </div>
 </body>
 <script type="text/javascript" src="scripts.js"></script>

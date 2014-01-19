@@ -25,6 +25,23 @@ body {
     text-align: center;
 }
 
+.areavoice {
+    float: left;
+    width: 16%;
+    margin-left: 42%;
+    margin-right: 42%;
+}
+
+.voicebutton {
+    float: left;
+    border: 1px solid #000000;
+    border-radius: 0px;
+    text-align: center;
+    font-family: verdana, sans-serif;
+    cursor: pointer;
+    width: 49%;
+}
+
 .buff {
     border: 1px solid #000000;
     border-radius: 5px;
@@ -57,4 +74,8 @@ body {
     padding-top: 35px;
     padding-bottom: 35px;
     background-color: #416732;
+}
+
+#normal {
+    background-color: #ffa500;
 }

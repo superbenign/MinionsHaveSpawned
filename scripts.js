@@ -24,19 +24,19 @@ buffs['dragon']['endTime'] = 0;
 buffs['theirbluebuff']['endTime'] = 0;
 buffs['theirredbuff']['endTime'] = 0;
 
-buffs['ourbluebuff']['soonAudio'] = "yourBlueSoonAudio";
-buffs['ourredbuff']['soonAudio'] = "yourRedSoonAudio";
-buffs['baron']['soonAudio'] = "baronSoonAudio";
-buffs['dragon']['soonAudio'] = "dragonSoonAudio";
-buffs['theirbluebuff']['soonAudio'] = "enemyBlueSoonAudio";
-buffs['theirredbuff']['soonAudio'] = "enemyRedSoonAudio";
+buffs['ourbluebuff']['soonAudio'] = "normalYourBlueSoonAudio";
+buffs['ourredbuff']['soonAudio'] = "normalYourRedSoonAudio";
+buffs['baron']['soonAudio'] = "normalBaronSoonAudio";
+buffs['dragon']['soonAudio'] = "normalDragonSoonAudio";
+buffs['theirbluebuff']['soonAudio'] = "normalEnemyBlueSoonAudio";
+buffs['theirredbuff']['soonAudio'] = "normalEnemyRedSoonAudio";
 
-buffs['ourbluebuff']['respawnAudio'] = "yourBlueRespawnAudio";
-buffs['ourredbuff']['respawnAudio'] = "yourRedRespawnAudio";
-buffs['baron']['respawnAudio'] = "baronRespawnAudio";
-buffs['dragon']['respawnAudio'] = "dragonRespawnAudio";
-buffs['theirbluebuff']['respawnAudio'] = "enemyBlueRespawnAudio";
-buffs['theirredbuff']['respawnAudio'] = "enemyRedRespawnAudio";
+buffs['ourbluebuff']['respawnAudio'] = "normalYourBlueRespawnAudio";
+buffs['ourredbuff']['respawnAudio'] = "normalYourRedRespawnAudio";
+buffs['baron']['respawnAudio'] = "normalBaronRespawnAudio";
+buffs['dragon']['respawnAudio'] = "normalDragonRespawnAudio";
+buffs['theirbluebuff']['respawnAudio'] = "normalEnemyBlueRespawnAudio";
+buffs['theirredbuff']['respawnAudio'] = "normalEnemyRedRespawnAudio";
 
 buffs['ourbluebuff']['text'] = "Blue";
 buffs['ourredbuff']['text'] = "Red";
@@ -51,6 +51,43 @@ buffs['baron']['warned'] = 0;
 buffs['dragon']['warned'] = 0;
 buffs['theirbluebuff']['warned'] = 0;
 buffs['theirredbuff']['warned'] = 0;
+
+function changeVoice(audioChoice) {
+    if (audioChoice == "funny") {
+	buffs['ourbluebuff']['soonAudio'] = "funnyYourBlueSoonAudio";
+	buffs['ourredbuff']['soonAudio'] = "funnyYourRedSoonAudio";
+	buffs['baron']['soonAudio'] = "funnyBaronSoonAudio";
+	buffs['dragon']['soonAudio'] = "funnyDragonSoonAudio";
+	buffs['theirbluebuff']['soonAudio'] = "funnyEnemyBlueSoonAudio";
+	buffs['theirredbuff']['soonAudio'] = "funnyEnemyRedSoonAudio";
+	buffs['ourbluebuff']['respawnAudio'] = "funnyYourBlueRespawnAudio";
+	buffs['ourredbuff']['respawnAudio'] = "funnyYourRedRespawnAudio";
+	buffs['baron']['respawnAudio'] = "funnyBaronRespawnAudio";
+	buffs['dragon']['respawnAudio'] = "funnyDragonRespawnAudio";
+	buffs['theirbluebuff']['respawnAudio'] = "funnyEnemyBlueRespawnAudio";
+	buffs['theirredbuff']['respawnAudio'] = "funnyEnemyRedRespawnAudio";
+
+	document.getElementById("funny").style.background = "#ffa500";
+	document.getElementById("normal").style.background = "#ffffff";
+
+    } else if (audioChoice == "normal") {
+	buffs['ourbluebuff']['soonAudio'] = "normalYourBlueSoonAudio";
+	buffs['ourredbuff']['soonAudio'] = "normalYourRedSoonAudio";
+	buffs['baron']['soonAudio'] = "normalBaronSoonAudio";
+	buffs['dragon']['soonAudio'] = "normalDragonSoonAudio";
+	buffs['theirbluebuff']['soonAudio'] = "normalEnemyBlueSoonAudio";
+	buffs['theirredbuff']['soonAudio'] = "normalEnemyRedSoonAudio";
+	buffs['ourbluebuff']['respawnAudio'] = "normalYourBlueRespawnAudio";
+	buffs['ourredbuff']['respawnAudio'] = "normalYourRedRespawnAudio";
+	buffs['baron']['respawnAudio'] = "normalBaronRespawnAudio";
+	buffs['dragon']['respawnAudio'] = "normalDragonRespawnAudio";
+	buffs['theirbluebuff']['respawnAudio'] = "normalEnemyBlueRespawnAudio";
+	buffs['theirredbuff']['respawnAudio'] = "normalEnemyRedRespawnAudio";
+
+	document.getElementById("normal").style.background = "#ffa500";
+	document.getElementById("funny").style.background = "#ffffff";
+    }
+}
 
 function playSound(elemID) {
     var d = new Date();
@@ -105,8 +142,6 @@ function runTimer(elemID) {
 	    playSound(buffs[elemID]['soonAudio']);
 	}
 	
-
-
 	setTimeout(function() {runTimer(elemID);}, 300);
     } else {
 	if (buffs[elemID]['endTime'] != 0) {
