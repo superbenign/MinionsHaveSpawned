@@ -1,6 +1,6 @@
 
 body {
-    background-color: #ffffff;
+    background-color: #222222;
 }
 
 .header {
@@ -30,6 +30,16 @@ body {
     width: 16%;
     margin-left: 42%;
     margin-right: 42%;
+}
+
+.optionbutton {
+    float: left;
+    border: 1px solid #000000;
+    border-radius: 0px;
+    text-align: center;
+    font-family: verdana, sans-serif;
+    cursor: pointer;
+    width: 49%;
 }
 
 .optiongroup {

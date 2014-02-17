@@ -53,7 +53,7 @@ buffs['theirbluebuff']['warned'] = 0;
 buffs['theirredbuff']['warned'] = 0;
 
 function changeVoice(audioChoice) {
-    if (audioChoice == "funny") {
+    if (audioChoice == "optfunny") {
 	buffs['ourbluebuff']['soonAudio'] = "funnyYourBlueSoonAudio";
 	buffs['ourredbuff']['soonAudio'] = "funnyYourRedSoonAudio";
 	buffs['baron']['soonAudio'] = "funnyBaronSoonAudio";
@@ -67,10 +67,7 @@ function changeVoice(audioChoice) {
 	buffs['theirbluebuff']['respawnAudio'] = "funnyEnemyBlueRespawnAudio";
 	buffs['theirredbuff']['respawnAudio'] = "funnyEnemyRedRespawnAudio";
 
-	document.getElementById("funny").style.background = "#ffa500";
-	document.getElementById("normal").style.background = "#ffffff";
-
-    } else if (audioChoice == "normal") {
+    } else if (audioChoice == "optnormal") {
 	buffs['ourbluebuff']['soonAudio'] = "normalYourBlueSoonAudio";
 	buffs['ourredbuff']['soonAudio'] = "normalYourRedSoonAudio";
 	buffs['baron']['soonAudio'] = "normalBaronSoonAudio";
@@ -84,9 +81,35 @@ function changeVoice(audioChoice) {
 	buffs['theirbluebuff']['respawnAudio'] = "normalEnemyBlueRespawnAudio";
 	buffs['theirredbuff']['respawnAudio'] = "normalEnemyRedRespawnAudio";
 
-	document.getElementById("normal").style.background = "#ffa500";
-	document.getElementById("funny").style.background = "#ffffff";
     }
+}
+
+function changeTheme(colorid) {
+    if (colorid == "optdark") {
+        document.getElementById('theme').href="darkstyle.css"
+    }
+    else { //light
+        document.getElementById('theme').href="style.css"
+    }
+}
+
+function optionChange(obj) {
+    if (! obj.checked ) {
+        return;
+    }
+    
+    if (obj.name == "opttheme") {
+        changeTheme(obj.id);
+    }
+    else if (obj.name == "optaudio") {
+        changeVoice(obj.id);
+    }
+    else {
+        alert("unknown option change");
+    }
+
+
+
 }
 
 function playSound(elemID) {

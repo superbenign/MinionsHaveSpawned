@@ -31,47 +31,64 @@
 <audio id="funnyEnemyBlueSoonAudio" src="audio/enemyBlueFreestyleSoon.wav" preload="auto"></audio>
 <audio id="funnyEnemyRedSoonAudio" src="audio/enemyRedFreestyleSoon.wav" preload="auto"></audio>
 
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" id="theme" type="text/css" href="style.css" />
     <div class=header>
         <h1>Minions Have Spawned</h1>
         <h2>Jungle timers for League of Legends</h2>
     </div>
     <div class=bodydiv>
-        <div class=area id=ourbuffs>
-            <div class=areatitle id=ourbufftitle>Our Jungle</div>
-            <div class=buff>
-                <div class=bluebuff id=ourbluebuff onclick="activateCooldown('ourbluebuff', 300000)">Blue</div>
+        <div class=buffs>
+            <div class=area id=ourbuffs>
+                <div class=areatitle id=ourbufftitle>Our Jungle</div>
+                <div class=buff>
+                    <div class=bluebuff id=ourbluebuff onclick="activateCooldown('ourbluebuff', 300000)">Blue</div>
+                </div>
+                <div class=buff>
+                    <div class=redbuff id=ourredbuff onclick="activateCooldown('ourredbuff', 300000)">Red</div>
+                </div>
             </div>
-            <div class=buff>
-                <div class=redbuff id=ourredbuff onclick="activateCooldown('ourredbuff', 300000)">Red</div>
+            <div class=area id=river>
+                <div class=areatitle id=rivertitle>River Monsters</div>
+                <div class=buff>
+                    <div class=baron id=baron onclick="activateCooldown('baron', 420000)">Baron</div>
+                </div>
+                <div class=buff>
+                    <div class=dragon id=dragon onclick="activateCooldown('dragon', 360000)">Dragon</div>
+                </div>
             </div>
-        </div>
-        <div class=area id=river>
-            <div class=areatitle id=rivertitle>River Monsters</div>
-            <div class=buff>
-                <div class=baron id=baron onclick="activateCooldown('baron', 420000)">Baron</div>
-            </div>
-            <div class=buff>
-                <div class=dragon id=dragon onclick="activateCooldown('dragon', 360000)">Dragon</div>
-            </div>
-        </div>
 
-        <div class=area id=theirbuffs>
-            <div class=areatitle id=theirbufftitle>Their Jungle</div>
-            <div class=buff>
-                <div class=bluebuff id=theirbluebuff onclick="activateCooldown('theirbluebuff', 300000)">Blue</div>
-            </div>
-            <div class=buff>
-                <div class=redbuff id=theirredbuff onclick="activateCooldown('theirredbuff', 300000)">Red</div>
+            <div class=area id=theirbuffs>
+                <div class=areatitle id=theirbufftitle>Their Jungle</div>
+                <div class=buff>
+                    <div class=bluebuff id=theirbluebuff onclick="activateCooldown('theirbluebuff', 300000)">Blue</div>
+                </div>
+                <div class=buff>
+                    <div class=redbuff id=theirredbuff onclick="activateCooldown('theirredbuff', 300000)">Red</div>
+                </div>
             </div>
         </div>
-
-	<div class=areavoice id=voiceselection>
-	  <div class=voicebutton id=funny onclick="changeVoice('funny')">Funny
-	  </div>
-	  <div class=voicebutton id=normal onclick="changeVoice('normal')">Normal
-	  </div>
-	</div>
+        <div class=options id=options>
+            <div class=optiongroup>
+                <label>
+                    <input type=radio name=optaudio id=optfunny onchange="optionChange(this)" />
+                    <div>Funny</div>
+                </label>
+                <label>
+                    <input type=radio name=optaudio id=optnormal onchange="optionChange(this)" checked />
+                    <div>Normal</div>
+                </label>
+            </div>
+            <div class=optiongroup>
+                <label>
+                    <input type=radio name=opttheme id=optlight onchange="optionChange(this)" checked />
+                    <div>Light</div>
+                </label>
+                <label>
+                    <input type=radio name=opttheme id=optdark onchange="optionChange(this)" />
+                    <div>Dark</div>
+                </label>
+            </div>
+        </div>
     </div>
 </body>
 <script type="text/javascript" src="scripts.js"></script>
