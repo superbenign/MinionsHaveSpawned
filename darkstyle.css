@@ -45,6 +45,7 @@ body {
 .optiongroup {
     width: 25%;
     float: left;
+    margin-right: 10px;
 }
 
 #options {
@@ -72,11 +73,12 @@ body {
 
 
 .buff {
-    border: 1px solid #000000;
-    border-radius: 5px;
+    border: 2px solid #FFEB25;
+    border-radius: 10px;
     text-align: center;
     margin-top: 50px;
     font-family: verdana, sans-serif;
+    overflow: hidden;
     cursor: pointer;
 }
 
